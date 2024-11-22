@@ -25,7 +25,7 @@ function ParentalControls() {
       <div className="parental-toggles__title-container">
         <h2 className="parental-toggles__title">Access Preferences</h2>
         <p className="parental-toggles__description">
-          Turn off AI suggested content in...
+          Filter AI suggested content in...
         </p>
       </div>
       <div>
