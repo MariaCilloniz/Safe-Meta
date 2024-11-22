@@ -1,6 +1,18 @@
 import React, { useEffect, useState } from "react";
+import {
+    Chart as ChartJS,
+    ArcElement,
+    Tooltip,
+    Legend,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+} from "chart.js";
+import { Bar, Doughnut } from "react-chartjs-2";
 import { getMetrics } from "../../api/TrustMetrics/TrustMetrics"
+import './TrustMetrics.scss'
 
+ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement);
 
 function TrustMetrics() {
     const [trustMetrics, setTrustMetrics] = useState(null);
@@ -9,10 +21,10 @@ function TrustMetrics() {
         const fetchMetrics = async () => {
             try {
                 const data = await getMetrics();
-                setTrustMetrics(data); // Set the fetched data
+                setTrustMetrics(data);
             } catch (error) {
                 console.error("Error fetching Trust Metrics:", error);
-                setTrustMetrics({ error: "Failed to fetch Trust Metrics." }); // Set an error object
+                setTrustMetrics({ error: "Failed to fetch Trust Metrics." });
             }
         };
 
@@ -23,67 +35,120 @@ function TrustMetrics() {
         return <div>{trustMetrics.error}</div>;
     }
 
-    // Fallback while data is not yet loaded
     if (!trustMetrics) {
-        return <div>Loading...</div>;
+        return <div>Please Wait </div>;
     }
 
-    const { dataTransparency, aiAccountability, privacyGrade } = trustMetrics;
+    const { dataTransparency, privacyGrade } = trustMetrics;
+
+    const doughnutData = {
+        labels: dataTransparency.dataCollected.categories,
+        datasets: [
+            {
+                label: "Data Collected",
+                data: [40, 60, 20],
+                backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+            },
+        ],
+    };
+
+    const doughnutOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: { display: false },
+            tooltip: { enabled: true },
+        },
+        cutout: "70%",
+    };
+
+    const barData = {
+        labels: ["Personalized Ads", "Activity Tracking", "Location Tracking"],
+        datasets: [
+            {
+                label: "Enabled",
+                data: [
+                    dataTransparency.dataCollected.optOutOptions.personalizedAds ? 70 : 30,
+                    dataTransparency.dataCollected.optOutOptions.activityTracking ? 60 : 40,
+                    dataTransparency.dataCollected.optOutOptions.locationTracking ? 50 : 50,
+                ],
+                backgroundColor: "#36A2EB",
+            },
+            {
+                label: "Disabled",
+                data: [
+                    dataTransparency.dataCollected.optOutOptions.personalizedAds ? 30 : 70,
+                    dataTransparency.dataCollected.optOutOptions.activityTracking ? 40 : 60,
+                    dataTransparency.dataCollected.optOutOptions.locationTracking ? 50 : 50,
+                ],
+                backgroundColor: "#FF6384",
+            },
+        ],
+    };
+
+    const barOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                position: "top",
+                labels: {
+                    font: {
+                        size: 12,
+                        family: "Verdana", // Need to change based on aswini 
+                    },
+                    color: "black", // Same thing
+                },
+            },
+            tooltip: { enabled: true },
+        },
+        scales: {
+            x: {
+                stacked: false,
+                ticks: {
+                    font: {
+                        size: 10, 
+                        family: "Verdana", // Ask aswini
+                    },
+                    color: "black", // Ask aswini
+                },
+                
+            },
+            y: {
+                beginAtZero: true,
+                max: 100,
+                ticks: {
+                    font: { size: 10 },
+                },
+            },
+        },
+    };
 
     return (
-        <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
-            <h1>Trust Metrics</h1>
+        <div className="trust-metrics">
+            <h1 className="trust-metrics__title">Trust Metrics</h1>
 
-            {/* Data Transparency Section */}
-            <section>
-                <h2>Data Transparency</h2>
-                <p><strong>Data Collected:</strong> {dataTransparency.dataCollected.categories.join(", ")}</p>
-                <h4>Usage:</h4>
-                <ul>
-                    {Object.entries(dataTransparency.dataCollected.usage).map(([key, value]) => (
-                        <li key={key}>
-                            <strong>{key.charAt(0).toUpperCase() + key.slice(1)}:</strong> {value}
-                        </li>
-                    ))}
-                </ul>
-                <h4>Opt-Out Options:</h4>
-                <ul>
-                    {Object.entries(dataTransparency.dataCollected.optOutOptions).map(([key, value]) => (
-                        <li key={key}>
-                            {key.charAt(0).toUpperCase() + key.slice(1)}: {value ? "Enabled" : "Disabled"}
-                        </li>
-                    ))}
-                </ul>
-            </section>
 
-            {/* AI Accountability Section */}
-            <section>
-                <h2>AI Accountability</h2>
-                <h4>Principles:</h4>
-                <ul>
-                    {aiAccountability.principles.map((principle, index) => (
-                        <li key={index}>{principle}</li>
-                    ))}
-                </ul>
-                <h4>Policies:</h4>
-                <ul>
-                    {aiAccountability.policies.map((policy, index) => (
-                        <li key={index}>{policy}</li>
-                    ))}
-                </ul>
-            </section>
+            <div className="trust-metrics__chart">
+                <Doughnut
+                    data={doughnutData}
+                    options={doughnutOptions}
+                />
+            </div>
 
-            {/* Privacy Grade Section */}
-            <section>
-                <h2>Privacy Grade</h2>
-                <p><strong>Score:</strong> {privacyGrade.score}/100</p>
-                <h4>Improvement Tips:</h4>
-                <ul>
-                    {privacyGrade.improvementTips.map((tip, index) => (
-                        <li key={index}>{tip}</li>
-                    ))}
-                </ul>
-            </section>
+
+            <div className="trust-metrics__privacy">
+                <p className="trust-metrics__score">
+                    <strong> Privacy Score:</strong> {privacyGrade.score}/100%
+                </p>
+            </div>
+
+            <div className="trust-metrics__chart">
+                <Bar
+                    data={barData}
+                    options={barOptions}
+                />
+            </div>
         </div>
     );
 }
