@@ -54,14 +54,32 @@
   }
 
   &__tag {
-    background-color: $primary-blue;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #eafaff;
+    color: $primary-blue;
     border-radius: 16px;
-    color: $primary-white;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
+
+    &-close {
+      border-radius: 30px;
+      padding: 0 0.3rem 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    &:hover {
+      color: $secondary-red;
+      background-color: $secondary-lightred;
+    }
   }
 
   p {
     margin: 0;
+    padding-right: 0.5rem;
     @include body2;
   }
 }

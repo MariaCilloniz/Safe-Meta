@@ -11,6 +11,11 @@ function FilterWords() {
       setInputValue("");
     }
   };
+
+  const removeKeyword = (removeTag) => {
+    setKeywords(keywords.filter((_, index) => index !== removeTag));
+  };
+
   return (
     <div className="filter-words">
       <div className="filter-words__title-container">
@@ -31,6 +36,10 @@ function FilterWords() {
         {keywords.map((keyword, index) => (
           <div key={index} className="filter-words__tag">
             <p>{keyword}</p>
+            <div className="filter-words__tag-close"
+              onClick={() => removeKeyword(index)}>
+              ×
+            </div>
           </div>
         ))}
       </div>
