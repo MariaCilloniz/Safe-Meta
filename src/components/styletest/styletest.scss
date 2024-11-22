@@ -1,0 +1,56 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.app-container {
+    background-color: $main-bg-color;
+    font-family: $font-family;
+    padding: $padding-32;
+  
+    .headline1-strong {
+      @include headline1-strong;
+    }
+  
+    .headline2 {
+      @include headline2;
+    }
+  
+    .headline3-strong {
+      @include headline3-strong;
+    }
+  
+    .body1 {
+      @include body1;
+    }
+  
+    .body2-strong {
+      @include body2-strong;
+    }
+  
+    .primary-button {
+      @include primary-button;
+    }
+  
+    .card {
+      background-color: $card-bg-color;
+      padding: $padding-24;
+      border-radius: $card-border-radius;
+      @include headline3;
+    }
+  
+    @include tablet {
+      padding: $padding-72;
+  
+      .headline1-strong {
+        font-size: 36px;
+      }
+    }
+  
+    @include desktop {
+      padding: $padding-72;
+  
+      .headline1-strong {
+        font-size: 48px;
+      }
+    }
+  }
+  
