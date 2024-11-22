@@ -21,7 +21,9 @@ function ParentalControls() {
     <div className="parental-toggles">
       <div className="parental-toggles__title-container">
         <h2 className="parental-toggles__title">Access Preferences</h2>
-        <p>Turn off AI suggested content in...</p>
+        <p className="parental-toggles__description">
+          Turn off AI suggested content in...
+        </p>
       </div>
       <div>
         {Object.keys(restrictions).map((restriction) => (
@@ -40,7 +42,6 @@ function ParentalControls() {
             </label>
           </div>
         ))}
-
       </div>
     </div>
   );

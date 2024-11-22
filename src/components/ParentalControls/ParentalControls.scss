@@ -1,75 +1,57 @@
-// .parental-toggles {
-//   background-color: white;
-//   border-radius: 4px;
-//   width: 30%;
-//   border: 1px solid black;
-//   box-sizing: border-box;
-//   &__title-container {
-//     background-color: lightgrey;
-//     border-radius: 4px 4px 0 0;
-//     margin: 0;
-//   }
-
-//   &__title {
-//     margin: 0;
-//   }
-// }
-
-// .restriction-container {
-//   display: flex;
-//   border-bottom: 1px solid red;
-//   justify-content: space-between;
-//   margin-bottom: 1rem;
-
-//   label {
-//     margin-right: 1rem;
-//     font-size: 1rem;
-//   }
-// }
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
 .parental-toggles {
-  width: 30%;
-  border: 1px solid black;
-  border-radius: 10px;
+  width: 23.625rem;
+  border: 1px solid $card-bg-color;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   &__title-container {
-    background-color: pink;
-    border-radius: 10px 10px 0 0;
+    background-color: $card-bg-color;
+    border-radius: 8px 8px 0 0;
+    padding: 1rem 1rem 0 1rem;
   }
 
   &__title {
     margin: 0;
+    @include headline2;
+  }
+
+  &__description {
+    @include body2;
+    padding-bottom: 0.5rem;
+  }
+
+  .restriction-text {
+    @include body1;
   }
   .restriction-container {
     display: flex;
     justify-content: space-between; /* Space between checkbox and label */
     align-items: center;
-    margin-bottom: 1rem;
+    margin: 0 1rem;
+    border-bottom: 1px solid #a7b3bf;
 
+    &:last-child {
+      border-bottom: none;
+      margin-bottom: 0.5rem;
+    }
     .custom-checkbox {
       position: relative;
       display: inline-block;
+      padding-right: 0.5rem;
 
       &::before {
         content: "";
+        background-image: url("../../assets/checkmark.svg");
+        background-position: center;
         display: inline-block;
-        width: 20px; // Circle size
-        height: 20px; // Circle size
-        border: 2px solid #ccc;
+        width: 24px; // Circle size
+        height: 24px; // Circle size
         border-radius: 50%;
-        background-color: white;
-        transition: background-color 0.3s, border-color 0.3s;
-      }
-
-      &::after {
-        content: "✓"; // Checkmark
-        color: white;
-        font-size: 14px;
-        font-weight: bold;
-        position: absolute;
-        top: 3px; // Adjust for checkmark centering
-        left: 5px;
-        display: none;
+        background-color: #e2e4e7c2; // Default background color (light grey)
+        transition: background-color 0.3s;
       }
     }
 
@@ -79,17 +61,7 @@
       // When checked, style the circle and show the checkmark
       &:checked + .custom-checkbox::before {
         background-color: green;
-        border-color: green;
       }
-
-      &:checked + .custom-checkbox::after {
-        display: block;
-      }
-    }
-
-    label {
-      font-size: 1rem;
-      margin-left: 1rem; /* Optional spacing from the checkbox */
     }
   }
 }
