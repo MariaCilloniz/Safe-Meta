@@ -1,6 +1,7 @@
 import "./Resource.scss";
 
 const url = import.meta.env.VITE_API_BASE_URL;
+
 export default function Resource({ resource }) {
 	console.log(resource);
 	return (
@@ -12,7 +13,7 @@ export default function Resource({ resource }) {
 			/>
 			<div className="resource-card__info">
 				<h3 className="resource-card__title">{resource.title}</h3>
-				<p className="resource-card__info">{resource.subtitle}</p>
+				<p className="resource-card__description">{resource.subtitle}</p>
 			</div>
 		</div>
 	);

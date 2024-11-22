@@ -1,15 +1,64 @@
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
 .resource-card {
 	display: flex;
 	background-color: $primary-white;
+	border-radius: $card-border-radius;
+	opacity: 0;
+	animation: 0.5s slideInFromBottom ease-out 0.1s forwards;
 
-	&__info {
-		display: flex;
-		flex-direction: column;
+	@include desktop {
+		flex-direction: row;
+		align-items: center;
+		gap: 3.5rem;
+		padding: 2.5rem;
+	}
+
+	&:hover {
+		box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+	}
+
+	@keyframes slideInFromBottom {
+		0% {
+			transform: translateY(60%) scale(0.9);
+			opacity: 0;
+		}
+		100% {
+			transform: translateY(0) scale(1);
+			opacity: 1;
+		}
 	}
 
 	&__image {
-		width: 20vw;
+		width: 18.75rem;
+		height: 12.5rem;
+		object-fit: cover;
+		border-radius: calc($card-border-radius / 2);
+		object-position: 0px 0px;
+	}
+
+	&__info {
+		display: flex;
+
+		@include desktop {
+			flex-direction: column;
+			gap: 1.5rem;
+			width: 60%;
+		}
+	}
+
+	&__title,
+	&__description {
+		margin: 0;
+	}
+
+	&__title {
+		font-size: $font-size-h3;
+	}
+
+	&__description {
+		font-size: $font-size-body1;
+		line-height: $line-height-h2;
 	}
 }

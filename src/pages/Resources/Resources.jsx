@@ -27,19 +27,26 @@ export default function Resources() {
 
 	return (
 		<main className="resources">
-			<h1 className="resources__title">Resources</h1>
-			<p className="resources__description">
-				Get information and useful tips on how to enhance literacy about AI
-			</p>
-			<ul className="resources__list">
-				{resourceList.map((resource) => (
-					<li key={resource.id} className="resources__item">
-						<a target="_blank" href={resource.link} className="resources__link">
-							<Resource resource={resource} />
-						</a>
-					</li>
-				))}
-			</ul>
+			<div className="resources-content">
+				<h1 className="resources__title">Resources</h1>
+				<p className="resources__description">
+					Get information and useful tips on how to enhance media literacy and
+					understanding the world of AI.
+				</p>
+				<ul className="resources__list">
+					{resourceList.map((resource) => (
+						<li key={resource.id} className="resources__item">
+							<a
+								target="_blank"
+								href={resource.link}
+								className="resources__link"
+							>
+								<Resource resource={resource} />
+							</a>
+						</li>
+					))}
+				</ul>
+			</div>
 		</main>
 	);
 }
