@@ -1,7 +1,12 @@
-import "./App.scss";
+import React from "react";
+import InteractionLogs from "./components/InteractionLogs/InteractionLogs";
 
-function App() {
-	return;
-}
+const App = () => {
+  return (
+    <div>
+      <InteractionLogs />
+    </div>
+  );
+};
 
 export default App;
