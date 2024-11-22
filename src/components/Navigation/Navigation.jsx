@@ -7,7 +7,7 @@ function Navigation() {
     <nav className="nav">
       <div className="nav__info">
         <p className="nav__logo">Meta Safe</p>
-        <p className="nav__date">{Date.now()}</p>
+        <p className="nav__date">{new Date(Date.now()).toDateString()}</p>
       </div>
       <div className="nav__links">
         <Link to="#" className="nav__resources">

@@ -1,25 +1,42 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/global" as *;
+
 .nav {
+  padding-bottom: 7px;
+  border-bottom: 1px solid #d9d9d9;
+
+  @include tablet {
+    @include flex-justify-space-between;
+  }
+
   &__info {
-  }
-
-  &__logo {
-  }
-
-  &__date {
+    @include body1;
+    @include flex-align-center;
+    @include flex-justify-space-between;
+    gap: 3.125rem;
+    margin-bottom: 1rem;
+    @include tablet {
+      margin-bottom: 0;
+      justify-content: flex-start;
+    }
   }
 
   &__links {
+    @include body1;
+    @include flex-justify-space-between;
+    @include flex-align-center;
+    gap: 3.125rem;
+    @include tablet {
+      justify-content: flex-start;
+    }
   }
 
   &__resources {
   }
 
   &__parent {
-  }
-
-  &__parent-text {
-  }
-
-  &__parent-image {
+    @include flex-align-center;
+    gap: 15px;
   }
 }

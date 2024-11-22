@@ -1,0 +1,26 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/global" as *;
+
+.parental-tips {
+  padding: 23px 36px 0;
+  &__title {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 1.5625rem;
+  }
+
+  &__title-text {
+    @include headline2;
+    font-weight: 400;
+  }
+
+  &__tip {
+    margin-bottom: 1.5625rem;
+    max-width: 20.4375rem;
+  }
+
+  &__link {
+    @include primary-button;
+  }
+}
