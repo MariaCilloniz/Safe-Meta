@@ -1,1 +1,123 @@
 @use '../../styles/partials/variables' as *;
+
+@mixin tablet {
+    @media (min-width: $breakpoint-tablet) {
+      @content;
+    }
+  }
+  
+  @mixin desktop {
+    @media (min-width: $breakpoint-desktop) {
+      @content;
+    }
+  }
+
+
+  
+//text mixins
+
+// Headline 1 - Strong
+@mixin headline1-strong {
+    font-family: $font-family;
+    font-size: $font-size-h1-strong;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-h1;
+    letter-spacing: $letter-spacing-h1;
+  }
+  
+  // Headline 1
+  @mixin headline1 {
+    font-family: $font-family;
+    font-size: $font-size-h1;
+    font-weight: $font-weight-light;
+    line-height: $line-height-h1;
+    letter-spacing: $letter-spacing-h1;
+  }
+  
+  // Headline 2 - Strong
+  @mixin headline2-strong {
+    font-family: $font-family;
+    font-size: $font-size-h2-strong;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-h2;
+    letter-spacing: $letter-spacing-h2;
+  }
+  
+  // Headline 2
+  @mixin headline2 {
+    font-family: $font-family;
+    font-size: $font-size-h2;
+    font-weight: $font-weight-light;
+    line-height: $line-height-h2;
+    letter-spacing: $letter-spacing-h2;
+  }
+  
+  // Headline 3 - Strong
+  @mixin headline3-strong {
+    font-family: $font-family;
+    font-size: $font-size-h3-strong;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-h3;
+  }
+  
+  // Headline 3
+  @mixin headline3 {
+    font-family: $font-family;
+    font-size: $font-size-h3;
+    font-weight: $font-weight-light;
+    line-height: $line-height-h3;
+  }
+  
+  // Body 1 - Strong
+  @mixin body1-strong {
+    font-family: $font-family;
+    font-size: $font-size-body1-strong;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-body1;
+  }
+  
+  // Body 1
+  @mixin body1 {
+    font-family: $font-family;
+    font-size: $font-size-body1;
+    font-weight: $font-weight-regular;
+    line-height: $line-height-body1;
+  }
+  
+  // Body 2 - Strong
+  @mixin body2-strong {
+    font-family: $font-family;
+    font-size: $font-size-body2-strong;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-body2;
+  }
+  
+  // Body 2
+  @mixin body2 {
+    font-family: $font-family;
+    font-size: $font-size-body2;
+    font-weight: $font-weight-regular;
+    line-height: $line-height-body2;
+  }
+  
+  @mixin hover-gradient-background {
+    background: linear-gradient(90deg, rgba($card-bg-color, 0) 0%, $main-bg-color 100%);
+  }
+
+
+  //butons
+  @mixin primary-button {
+    padding: $button-padding;
+    background: $primary-blue;
+    color: $main-bg-color;
+    border-radius: $button-border-radius;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: $font-size-body1;
+    font-weight: $font-weight-regular;
+    line-height: $line-height-body1;
+    font-family: $font-family;
+    border-color: transparent;
+  }
+  
