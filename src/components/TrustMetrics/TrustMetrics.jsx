@@ -39,7 +39,10 @@ function TrustMetrics() {
         return <div>Please Wait </div>;
     }
 
-    const { dataTransparency, privacyGrade } = trustMetrics;
+    const dataTransparency = trustMetrics.dataTransparency || {
+        dataCollected: { categories: [], optOutOptions: {} },
+    };
+    const privacyGrade = trustMetrics.privacyGrade || { score: 85 };
 
     const doughnutData = {
         labels: dataTransparency.dataCollected.categories,
@@ -47,7 +50,7 @@ function TrustMetrics() {
             {
                 label: "Data Collected",
                 data: [40, 60, 20],
-                backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+                backgroundColor: ["#0064E0", "#36A2EB", "#FFCE56"],
             },
         ],
     };
@@ -72,7 +75,7 @@ function TrustMetrics() {
                     dataTransparency.dataCollected.optOutOptions.activityTracking ? 60 : 40,
                     dataTransparency.dataCollected.optOutOptions.locationTracking ? 50 : 50,
                 ],
-                backgroundColor: "#36A2EB",
+                backgroundColor: "#0064E0",
             },
             {
                 label: "Disabled",
@@ -81,7 +84,7 @@ function TrustMetrics() {
                     dataTransparency.dataCollected.optOutOptions.activityTracking ? 40 : 60,
                     dataTransparency.dataCollected.optOutOptions.locationTracking ? 50 : 50,
                 ],
-                backgroundColor: "#FF6384",
+                backgroundColor: "#FFCE56",
             },
         ],
     };
@@ -95,9 +98,9 @@ function TrustMetrics() {
                 labels: {
                     font: {
                         size: 12,
-                        family: "Verdana", // Need to change based on aswini 
+                        family: "Inter", 
                     },
-                    color: "black", // Same thing
+                    color: "black", 
                 },
             },
             tooltip: { enabled: true },
@@ -108,9 +111,9 @@ function TrustMetrics() {
                 ticks: {
                     font: {
                         size: 10, 
-                        family: "Verdana", // Ask aswini
+                        family: "Inter",
                     },
-                    color: "black", // Ask aswini
+                    color: "black",
                 },
                 
             },
@@ -139,7 +142,7 @@ function TrustMetrics() {
 
             <div className="trust-metrics__privacy">
                 <p className="trust-metrics__score">
-                    <strong> Privacy Score:</strong> {privacyGrade.score}/100%
+                    Privacy Score: {privacyGrade.score}/100%
                 </p>
             </div>
 

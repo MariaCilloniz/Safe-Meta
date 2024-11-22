@@ -1,12 +1,12 @@
-// @use '../../styles/partials/variables' as *;
-// @use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
 
 .trust-metrics {
     gap: 14px;
     width: 467px;
     height: 292px;
-    background-color: #ffffff;
-    border: 1px solid #ddd;
+    background-color: $primary-white;
+    border: 1px solid $card-bg-color;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 10px;
@@ -14,9 +14,14 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    font-family: Arial, sans-serif;
+    font-family: $font-family;
+
+    // p{
+    //     line-height: 25px;
+    // }
 
     &__title {
+        @include headline1;
         font-size: 1rem;
         margin-bottom: 5px;
         text-align: center;
@@ -32,6 +37,6 @@
     }
     &__score {
         font-size: 1rem;
-        font-weight: bold;
+        
     }
 }
