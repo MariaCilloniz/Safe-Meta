@@ -139,7 +139,7 @@ function TrustMetrics() {
 
             <div className="trust-metrics__privacy">
                 <p className="trust-metrics__score">
-                    <strong> Privacy Score:</strong> {privacyGrade.score}/100%
+                    Privacy Score: {privacyGrade.score}/100%
                 </p>
             </div>
 
