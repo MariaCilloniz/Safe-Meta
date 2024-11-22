@@ -3,6 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import Resources from "./pages/Resources/Resources";
 import Header from "./components/Header/Header";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="home" element={<Navigate to="/" />} />
         <Route path="resources" element={<Resources />} />
+		<Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );
