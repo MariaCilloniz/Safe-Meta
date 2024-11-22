@@ -1,3 +1,5 @@
+@use "../../styles/partials/variables" as *;
+
 .container-one {
   display: flex;
   align-items: center;
@@ -5,4 +7,8 @@
 
 .container-two {
   display: flex;
+}
+
+body {
+  background-color: $main-bg-color;
 }
