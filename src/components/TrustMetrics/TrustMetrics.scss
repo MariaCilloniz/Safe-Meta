@@ -1,0 +1,37 @@
+// @use '../../styles/partials/variables' as *;
+// @use '../../styles/partials/mixins' as *;
+
+.trust-metrics {
+    gap: 14px;
+    width: 467px;
+    height: 292px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-family: Arial, sans-serif;
+
+    &__title {
+        font-size: 1rem;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+    &__chart {
+        width: 150px;
+        height: 150px;
+        margin: 5px auto;
+    }
+    &__privacy {
+        text-align: center;
+        font-size: 0.9rem;
+    }
+    &__score {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+}
