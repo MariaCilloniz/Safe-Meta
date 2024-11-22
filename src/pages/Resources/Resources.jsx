@@ -22,7 +22,7 @@ export default function Resources() {
 	}, []);
 
 	if (resourceList.length === 0) {
-		return <div>Loading...</div>;
+		return <div></div>;
 	}
 
 	return (
