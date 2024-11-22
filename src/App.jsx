@@ -1,14 +1,12 @@
-import "./App.scss";
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import TrustMetrics from "./components/TrustMetrics/TrustMetrics";
+import React from "react";
+import InteractionLogs from "./components/InteractionLogs/InteractionLogs";
 
-function App() {
-	return (
-		<BrowserRouter>
-		<TrustMetrics/>
-			<Routes>
-			</Routes>
-		</BrowserRouter>
-	)
-}
+const App = () => {
+  return (
+    <div>
+      <InteractionLogs />
+    </div>
+  );
+};
+
 export default App;
