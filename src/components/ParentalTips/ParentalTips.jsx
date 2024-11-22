@@ -2,23 +2,29 @@ import "./ParentalTips.scss";
 import tipsIcon from "../../assets/images/tips-icon.svg";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 
 function ParentalTips() {
   const [tips, setTips] = useState([]);
   const [randomTip, setRandomTip] = useState("");
   const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
-  const getRandomTip = async () => {
-    const tips = await axios.get(`${baseUrl}/api/tips`);
-    setTips(tips.data);
+  const getTips = async () => {
+    try {
+      const tips = await axios.get(`${baseUrl}/api/tips`);
+      setTips(tips.data);
+      setRandomTip(tips.data[0].tip);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-    const range = Math.floor(Math.random() * (tips.data.length - 1 - 1) + 1);
-    await setRandomTip(tips.data[range].tip);
+  const handleClick = () => {
+    const range = Math.floor(Math.random() * (tips.length - 1 - 1) + 1);
+    setRandomTip(tips[range].tip);
   };
 
   useEffect(() => {
-    getRandomTip();
+    getTips();
   }, []);
 
   return (
@@ -28,9 +34,9 @@ function ParentalTips() {
         <img src={tipsIcon} alt="light bulb icon" />
       </div>
       <p className="parental-tips__tip">{randomTip}</p>
-      <Link to="#" className="parental-tips__link">
+      <button onClick={handleClick} className="parental-tips__button">
         More Tips
-      </Link>
+      </button>
     </section>
   );
 }

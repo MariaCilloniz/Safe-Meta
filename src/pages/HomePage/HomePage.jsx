@@ -7,9 +7,9 @@ function HomePage() {
   return (
     <main className="home-page">
       <div className="home-page__container">
+        <InteractionLogs />
         <TrustMetrics />
         <ParentalTips />
-        <InteractionLogs />
       </div>
     </main>
   );

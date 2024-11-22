@@ -18,9 +18,10 @@
   &__tip {
     margin-bottom: 1.5625rem;
     max-width: 20.4375rem;
+    height: 3.75rem;
   }
 
-  &__link {
+  &__button {
     @include primary-button;
   }
 }
