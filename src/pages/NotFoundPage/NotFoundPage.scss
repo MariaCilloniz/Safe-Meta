@@ -1,0 +1,60 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/global" as *;
+
+.not-found {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #0078FF, #00C6FF);
+    color: #fff;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    &__container {
+      text-align: center;
+      padding: 2rem;
+      max-width: 600px;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+    &__title {
+      font-size: 6rem;
+      margin-bottom: 1rem;
+      animation: pop 0.8s ease-out forwards;
+    }
+    &__message {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    &__meta {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+    &__home-link {
+      font-size: 1.2rem;
+      color: #00C6FF;
+      background-color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        background-color: #F0F0F0;
+        transform: scale(1.05);
+      }
+    }
+    @keyframes pop {
+      0% {
+        transform: scale(0.9);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  }
