@@ -1,12 +1,16 @@
-import React from "react";
-import InteractionLogs from "./components/InteractionLogs/InteractionLogs";
+import "./App.scss";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage/HomePage";
+import Header from "./components/Header/Header";
 
-const App = () => {
+function App() {
   return (
-    <div>
-      <InteractionLogs />
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
-};
-
+}
 export default App;

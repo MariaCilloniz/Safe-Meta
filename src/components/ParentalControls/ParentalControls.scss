@@ -1,0 +1,68 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.parental-toggles {
+  width: 23.625rem;
+  border: 1px solid $card-bg-color;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: $primary-white;
+
+  &__title-container {
+    background-color: $card-bg-color;
+    border-radius: 8px 8px 0 0;
+    padding: 1rem 1rem 0 1rem;
+  }
+
+  &__title {
+    margin: 0;
+    @include headline2;
+  }
+
+  &__description {
+    @include body2;
+    padding-bottom: 0.5rem;
+  }
+
+  .restriction-text {
+    @include body1;
+  }
+  .restriction-container {
+    display: flex;
+    justify-content: space-between; /* Space between checkbox and label */
+    align-items: center;
+    margin: 0 1rem;
+    border-bottom: 1px solid #a7b3bf;
+
+    &:last-child {
+      border-bottom: none;
+      margin-bottom: 0.5rem;
+    }
+    .custom-checkbox {
+      position: relative;
+      display: inline-block;
+      padding-right: 0.5rem;
+
+      &::before {
+        content: "";
+        background-image: url("../../assets/checkmark.svg");
+        background-position: center;
+        display: inline-block;
+        width: 24px; // Circle size
+        height: 24px; // Circle size
+        border-radius: 50%;
+        background-color: #e2e4e7c2; // Default background color (light grey)
+        transition: background-color 0.3s;
+      }
+    }
+
+    input[type="checkbox"] {
+      display: none;
+
+      // When checked, style the circle and show the checkmark
+      &:checked + .custom-checkbox::before {
+        background-color: green;
+      }
+    }
+  }
+}
