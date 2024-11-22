@@ -26,17 +26,21 @@ function ParentalControls() {
       <div>
         {Object.keys(restrictions).map((restriction) => (
           <div key={restriction} className="restriction-container">
-            <label htmlFor="restriction">
+            <p className="restriction-text">
               {restriction.charAt(0).toUpperCase() + restriction.slice(1)}
+            </p>
+            <label htmlFor={restriction} className="checkbox-wrapper">
+              <input
+                type="checkbox"
+                id={restriction}
+                checked={restrictions[restriction]}
+                onChange={() => toggleRestrictions(restriction)}
+              />
+              <span className="custom-checkbox"></span>
             </label>
-            <input
-              type="checkbox"
-              id="restriction"
-              checked={restrictions[restriction]}
-              onChange={() => toggleRestrictions(restriction)}
-            />
           </div>
         ))}
+
       </div>
     </div>
   );
