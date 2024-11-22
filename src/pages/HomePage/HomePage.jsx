@@ -1,11 +1,14 @@
-import React from 'react'
+import React from "react";
+import ParentalControls from "../../components/ParentalControls/ParentalControls";
+import TrustMetrics from "../../components/TrustMetrics/TrustMetrics";
 
 function HomePage() {
   return (
     <div>
-      hello
+      <TrustMetrics />
+      <ParentalControls />
     </div>
-  )
+  );
 }
 
-export default HomePage
+export default HomePage;
