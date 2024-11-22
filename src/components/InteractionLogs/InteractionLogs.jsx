@@ -4,7 +4,7 @@ import {
   faFacebook,
   faInstagram,
   faWhatsapp,
-  faMessenger,
+  faFacebookMessenger,
 } from "@fortawesome/free-brands-svg-icons";
 import "./InteractionLogs.scss";
 
@@ -15,103 +15,94 @@ const InteractionLogs = () => {
   useEffect(() => {
     const fetchLogs = async () => {
       const mockLogs = [
+        // Logs for 2024-11-18
         {
           id: 1,
           platform: "Instagram",
           feature: "Reels",
           count: 15,
-          lastActivity: "2024-11-20 15:30:00",
+          lastActivity: "2024-11-18 15:30:00",
         },
         {
           id: 2,
           platform: "Facebook",
           feature: "AI-Recommended Groups",
           count: 8,
-          lastActivity: "2024-11-21 10:00:00",
+          lastActivity: "2024-11-18 15:30:00",
         },
         {
           id: 3,
           platform: "Messenger",
           feature: "AI Chatbot Conversations",
           count: 5,
-          lastActivity: "2024-11-22 12:30:00",
+          lastActivity: "2024-11-18 15:30:00",
         },
         {
           id: 4,
-          platform: "Instagram",
-          feature: "AR Filters",
-          count: 12,
-          lastActivity: "2024-11-21 14:20:00",
-        },
-        {
-          id: 5,
-          platform: "Facebook",
-          feature: "AI-Suggested Ads",
-          count: 6,
-          lastActivity: "2024-11-23 16:10:00",
-        },
-        {
-          id: 6,
           platform: "WhatsApp",
           feature: "Business AI Chatbots",
           count: 4,
-          lastActivity: "2024-11-23 13:50:00",
+          lastActivity: "2024-11-18 15:30:00",
+        },
+
+        // Logs for 2024-11-19
+        {
+          id: 5,
+          platform: "Instagram",
+          feature: "AR Filters",
+          count: 12,
+          lastActivity: "2024-11-19 15:30:00",
+        },
+        {
+          id: 6,
+          platform: "Facebook",
+          feature: "AI-Suggested Ads",
+          count: 6,
+          lastActivity: "2024-11-19 15:30:00",
         },
         {
           id: 7,
-          platform: "Instagram",
-          feature: "Suggested Posts",
-          count: 9,
-          lastActivity: "2024-11-22 18:30:00",
-        },
-        {
-          id: 8,
-          platform: "Facebook",
-          feature: "Video Recommendations",
-          count: 10,
-          lastActivity: "2024-11-21 09:10:00",
-        },
-        {
-          id: 9,
           platform: "Messenger",
           feature: "AI-Replied Messages",
           count: 7,
-          lastActivity: "2024-11-20 17:45:00",
+          lastActivity: "2024-11-19 15:30:00",
+        },
+        {
+          id: 8,
+          platform: "WhatsApp",
+          feature: "AI Automated Replies",
+          count: 3,
+          lastActivity: "2024-11-19 15:30:00",
+        },
+
+        // Logs for 2024-11-20
+        {
+          id: 9,
+          platform: "Instagram",
+          feature: "Trending Reels",
+          count: 20,
+          lastActivity: "2024-11-20 15:30:00",
         },
         {
           id: 10,
-          platform: "Instagram",
-          feature: "Reels AI Suggestions",
-          count: 14,
-          lastActivity: "2024-11-20 16:10:00",
+          platform: "Facebook",
+          feature: "Video Recommendations",
+          count: 10,
+          lastActivity: "2024-11-20 15:30:00",
         },
         {
           id: 11,
-          platform: "Facebook",
+          platform: "Messenger",
           feature: "Group Recommendations",
           count: 5,
-          lastActivity: "2024-11-23 10:30:00",
+          lastActivity: "2024-11-20 15:30:00",
         },
         {
           id: 12,
           platform: "WhatsApp",
-          feature: "AI Automated Replies",
-          count: 3,
-          lastActivity: "2024-11-21 11:00:00",
-        },
-        {
-          id: 13,
-          platform: "Instagram",
-          feature: "Trending Reels",
-          count: 20,
-          lastActivity: "2024-11-22 15:30:00",
-        },
-        {
-          id: 14,
-          platform: "Facebook",
-          feature: "Event Recommendations",
-          count: 4,
-          lastActivity: "2024-11-23 14:20:00",
+          feature: "Business Insights",
+          count: 6,
+          lastActivity: "2024-11-20 15:30:00",
         },
       ];
 
@@ -119,6 +110,7 @@ const InteractionLogs = () => {
       const filteredLogs = mockLogs.filter((log) =>
         log.lastActivity.startsWith(selectedDay)
       );
+
       setLogs(filteredLogs);
     };
 
@@ -128,15 +120,28 @@ const InteractionLogs = () => {
   const getIcon = (platform) => {
     switch (platform) {
       case "Facebook":
-        return <FontAwesomeIcon icon={faFacebook} />;
+        return (
+          <FontAwesomeIcon icon={faFacebook} style={{ fontSize: "36px" }} />
+        );
       case "Instagram":
-        return <FontAwesomeIcon icon={faInstagram} />;
+        return (
+          <FontAwesomeIcon icon={faInstagram} style={{ fontSize: "36px" }} />
+        );
       case "WhatsApp":
-        return <FontAwesomeIcon icon={faWhatsapp} />;
+        return (
+          <FontAwesomeIcon icon={faWhatsapp} style={{ fontSize: "36px" }} />
+        );
       case "Messenger":
-        return <FontAwesomeIcon icon={faMessenger} />;
+        return (
+          <FontAwesomeIcon
+            icon={faFacebookMessenger}
+            style={{ fontSize: "36px" }}
+          />
+        );
       default:
-        return <FontAwesomeIcon icon={faFacebook} />;
+        return (
+          <FontAwesomeIcon icon={faFacebook} style={{ fontSize: "36px" }} />
+        );
     }
   };
 
@@ -144,8 +149,8 @@ const InteractionLogs = () => {
     <div className="interaction-logs">
       <h2>AI TRACKER</h2>
 
-      {/* Day Filter */}
-      <div className="day-filter">
+      {/* Date Filter at the top right */}
+      <div className="date-filter">
         <label htmlFor="day">Filter by day:</label>
         <input
           type="date"
@@ -157,11 +162,11 @@ const InteractionLogs = () => {
 
       <div className="platforms-container">
         {logs.map((log) => (
-          <div className="platform-log" key={log.id}>
+          <div className={`platform-log ${log.platform}`} key={log.id}>
             <div className="platform-header">
               <div className="platform-icon">{getIcon(log.platform)}</div>
               <h3>{log.platform}</h3>
-              <span>{log.count} profile views</span>
+              <span className="profile-views">{log.count} profile views</span>
             </div>
             <div className="progress-bar">
               <div
