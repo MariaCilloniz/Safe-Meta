@@ -1,12 +1,14 @@
 import "./App.scss";
-import ParentalControls from "./components/ParentalControls/ParentalControls";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import TrustMetrics from "./components/TrustMetrics/TrustMetrics";
 
 function App() {
-  return (
-    <>
-      <ParentalControls />
-    </>
-  );
+	return (
+		<BrowserRouter>
+		<TrustMetrics/>
+			<Routes>
+			</Routes>
+		</BrowserRouter>
+	)
 }
-
 export default App;
