@@ -8,8 +8,11 @@ function ParentalControls() {
     suggestedProfiles: false,
   });
 
-  const [selectedApp, setSelectedApp] = useState("facebook");
-  const apps = ["Facebook", "Instagram", "WhatsApp"];
+  const displayNames = {
+    reels: "Reels",
+    search: "Search",
+    suggestedProfiles: "Suggested Profiles",
+  };
 
   function toggleRestrictions(restriction) {
     setRestrictions((prevState) => ({
@@ -28,9 +31,7 @@ function ParentalControls() {
       <div>
         {Object.keys(restrictions).map((restriction) => (
           <div key={restriction} className="restriction-container">
-            <p className="restriction-text">
-              {restriction.charAt(0).toUpperCase() + restriction.slice(1)}
-            </p>
+            <p className="restriction-text">{displayNames[restriction]}</p>
             <label htmlFor={restriction} className="checkbox-wrapper">
               <input
                 type="checkbox"
