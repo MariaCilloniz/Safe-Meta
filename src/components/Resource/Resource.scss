@@ -1,0 +1,15 @@
+@use "../../styles/partials/variables" as *;
+
+.resource-card {
+	display: flex;
+	background-color: $primary-white;
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__image {
+		width: 20vw;
+	}
+}

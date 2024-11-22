@@ -1,0 +1,16 @@
+@use "../../styles/partials/variables" as *;
+
+.resources {
+	background-color: $card-bg-color;
+
+	&__list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	&__link {
+		text-decoration: none;
+		color: $primary-black;
+	}
+}

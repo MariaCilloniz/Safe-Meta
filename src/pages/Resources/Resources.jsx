@@ -33,8 +33,8 @@ export default function Resources() {
 			</p>
 			<ul className="resources__list">
 				{resourceList.map((resource) => (
-					<li key={resource.id}>
-						<a target="_blank" href={resource.link}>
+					<li key={resource.id} className="resources__item">
+						<a target="_blank" href={resource.link} className="resources__link">
 							<Resource resource={resource} />
 						</a>
 					</li>
