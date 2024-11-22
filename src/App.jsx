@@ -1,24 +1,14 @@
 import "./App.scss";
-import Styletest from "./components/styletest/styletest";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import TrustMetrics from "./components/TrustMetrics/TrustMetrics";
 
 function App() {
-	
-  return (
-  <>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<Styletest />
-  </>
-  )
+	return (
+		<BrowserRouter>
+		<TrustMetrics/>
+			<Routes>
+			</Routes>
+		</BrowserRouter>
+	)
 }
-
 export default App;
