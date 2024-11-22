@@ -6,7 +6,7 @@
 }
 
 .filter-words {
-  width: 20.0625rem;
+  width: 50%;
   background-color: $card-bg-color;
   border-radius: 8px;
   box-sizing: border-box;
@@ -33,7 +33,6 @@
   }
 
   &__input {
-    width: 16.875rem;
     resize: none;
     height: 10rem;
     border-radius: 16px;
