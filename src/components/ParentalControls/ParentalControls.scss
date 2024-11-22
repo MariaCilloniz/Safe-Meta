@@ -1,0 +1,28 @@
+.parental-toggles {
+  background-color: white;
+  border-radius: 4px;
+  width: 30%;
+  border: 1px solid black;
+  box-sizing: border-box;
+  &__title-container {
+    background-color: lightgrey;
+    border-radius: 4px 4px 0 0;
+    margin: 0;
+  }
+
+  &__title {
+    margin: 0;
+  }
+}
+
+.restriction-container {
+  display: flex;
+  border-bottom: 1px solid red;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+
+  label {
+    margin-right: 1rem;
+    font-size: 1rem;
+  }
+}
