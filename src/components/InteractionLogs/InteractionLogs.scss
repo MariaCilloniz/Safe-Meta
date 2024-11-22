@@ -7,6 +7,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
+ width: 100%;
 }
 
 h2 {
@@ -35,6 +36,110 @@ h2 {
   grid-template-columns: repeat(2, 1fr); /* 2 by 2 layout */
   gap: 20px;
   // margin-top: 50px;
+}
+
+.platform-log {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.platform-log.Facebook {
+  background-color: #1877f2;
+  color: white;
+}
+
+.platform-log.Instagram {
+  background: linear-gradient(135deg, #f5599d, #f7b42c);
+  color: white;
+}
+
+.platform-log.WhatsApp {
+  background-color: #25d366;
+  color: white;
+}
+
+.platform-log.Messenger {
+  background-color: #0084ff;
+  color: white;
+}
+
+.platform-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.platform-icon {
+  font-size: 36px;
+}
+
+.profile-views {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 12px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: #ddd;
+  border-radius: 5px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.progress {
+  height: 100%;
+  background-color: #4caf50;
+  border-radius: 5px;
+}
+
+.feature {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.last-activity {
+  font-size: 12px;
+  color: #666;
+}
+
+.platform-log:hover {
+  transform: translateY(-5px);
+}
+
+
+h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.date-filter {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.date-filter label {
+  margin-right: 10px;
+}
+
+.date-filter input {
+  padding: 5px;
+}
+
+.platforms-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 by 2 layout */
+  gap: 20px;
+  margin-top: 50px;
 }
 
 .platform-log {

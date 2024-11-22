@@ -2,11 +2,11 @@
 @use "../../styles/partials/mixins" as *;
 
 .parental-toggles {
-  
   border: 1px solid $card-bg-color;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: $primary-white;
+  justify-content: space-between;
 
   &__title-container {
     background-color: $card-bg-color;
@@ -31,7 +31,7 @@
     display: flex;
     justify-content: space-between; /* Space between checkbox and label */
     align-items: center;
-    margin: 0 1rem;
+    margin: 1rem 1rem;
     border-bottom: 1px solid #a7b3bf;
 
     &:last-child {
