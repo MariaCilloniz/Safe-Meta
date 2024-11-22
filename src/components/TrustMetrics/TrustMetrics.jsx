@@ -39,7 +39,10 @@ function TrustMetrics() {
         return <div>Please Wait </div>;
     }
 
-    const { dataTransparency, privacyGrade } = trustMetrics;
+    const dataTransparency = trustMetrics.dataTransparency || {
+        dataCollected: { categories: [], optOutOptions: {} },
+    };
+    const privacyGrade = trustMetrics.privacyGrade || { score: 85 };
 
     const doughnutData = {
         labels: dataTransparency.dataCollected.categories,
