@@ -28,9 +28,6 @@
   
     .primary-button {
       @include primary-button;
-      &:hover {
-        @include hover-gradient-background;
-      }
     }
   
     .card {
