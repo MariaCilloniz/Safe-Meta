@@ -1,0 +1,67 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
+.filter-words {
+  width: 20.0625rem;
+  background-color: $card-bg-color;
+  border-radius: 8px;
+  box-sizing: border-box;
+  &__title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  &__title {
+    @include headline2;
+    margin: 0;
+  }
+
+  &__add-button {
+    @include primary-button;
+    height: 2.5rem;
+  }
+
+  &__input-container {
+    box-sizing: border-box;
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  &__input {
+    width: 16.875rem;
+    resize: none;
+    height: 10rem;
+    border-radius: 16px;
+    border: none;
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+
+    &:focus {
+      outline-color: $primary-blue;
+    }
+  }
+
+  &__tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  &__tag {
+    background-color: $primary-blue;
+    border-radius: 16px;
+    color: $primary-white;
+    padding: 0.5rem;
+  }
+
+  p {
+    margin: 0;
+    @include body2;
+  }
+}
