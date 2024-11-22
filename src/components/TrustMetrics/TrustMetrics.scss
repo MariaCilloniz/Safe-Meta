@@ -1,42 +1,133 @@
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/mixins' as *;
 
+// Trust Metrics Card Styles
 .trust-metrics {
-    gap: 14px;
-    width: 467px;
-    height: 292px;
     background-color: $primary-white;
     border: 1px solid $card-bg-color;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 10px;
+    border-radius: $card-border-radius;
+    padding: $padding-24;
+    box-shadow: 0 4px 8px rgba($primary-black, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    font-family: $font-family;
+    gap: $padding-24;
 
-    // p{
-    //     line-height: 25px;
-    // }
+    @include tablet {
+        padding: $padding-32;
+    }
+
+    @include desktop {
+        max-width: 1000px;
+    }
 
     &__title {
-        @include headline1;
-        font-size: 1rem;
-        margin-bottom: 5px;
+        @include headline1-strong;
+        color: $primary-black;
         text-align: center;
     }
-    &__chart {
-        width: 150px;
-        height: 150px;
-        margin: 5px auto;
+
+    &__chart-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: $padding-16;
+
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        &__chart {
+            flex: 1;
+            background-color: $card-bg-color;
+            border-radius: $card-border-radius;
+            padding: $padding-16;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &--doughnut {
+                height: 250px; // Smaller height for the doughnut chart
+                width: 250px;
+            }
+
+            &--bar {
+                height: 400px;
+                width: 100%;
+            }
+        }
     }
+
     &__privacy {
         text-align: center;
-        font-size: 0.9rem;
+
+        &__score {
+            @include body1-strong;
+            color: $primary-blue;
+            background-color: $primary-white;
+            padding: $padding-16;
+            border-radius: $button-border-radius;
+            display: inline-block;
+            border: 1px solid $primary-blue;
+            box-shadow: 0 2px 4px rgba($primary-black, 0.1);
+        }
     }
-    &__score {
-        font-size: 1rem;
-        
+
+    // Tooltip Styles
+    .chartjs-tooltip {
+        font-family: $font-family;
+        font-size: $font-size-body2;
+        color: $primary-black;
+        background-color: $primary-white;
+        border: 1px solid $card-bg-color;
+        border-radius: $card-border-radius;
+        padding: $padding-16;
+        box-shadow: 0 2px 6px rgba($primary-black, 0.1);
+    }
+
+    // Legend Styles
+    .chartjs-legend {
+        font-family: $font-family;
+        font-size: $font-size-body2;
+        color: $primary-black;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: $padding-16;
+
+        li {
+            display: inline-flex;
+            align-items: center;
+
+            &::before {
+                content: '';
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                display: inline-block;
+                margin-right: .5rem;
+            }
+
+            &--primary {
+                &::before {
+                    background-color: $primary-blue;
+                }
+            }
+
+            &--secondary {
+                &::before {
+                    background-color: $secondary-lightred;
+                }
+            }
+
+            &--tertiary {
+                &::before {
+                    background-color: $secondary-red;
+                }
+            }
+        }
     }
 }

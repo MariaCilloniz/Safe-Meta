@@ -1,15 +1,19 @@
 import "./App.scss";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
-import TrustMetrics from "./components/TrustMetrics/TrustMetrics";
+import Resources from "./pages/Resources/Resources";
+import Header from "./components/Header/Header";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />}></Route>
-      </Routes>
-    </BrowserRouter>
-  );
+	return (
+		<BrowserRouter>
+			<Header />
+			<Routes>
+				<Route path="/" element={<HomePage />} />
+				<Route path="home" element={<Navigate to="/" />} />
+				<Route path="resources" element={<Resources />} />
+			</Routes>
+		</BrowserRouter>
+	);
 }
 export default App;
