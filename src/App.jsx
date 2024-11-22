@@ -1,7 +1,8 @@
 import "./App.scss";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Header from "./components/Header/Header";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
+import Resources from "./pages/Resources/Resources";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
@@ -9,6 +10,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="home" element={<Navigate to="/" />} />
+        <Route path="resources" element={<Resources />} />
       </Routes>
     </BrowserRouter>
   );
