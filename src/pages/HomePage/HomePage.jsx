@@ -1,22 +1,24 @@
-import React from "react";
-import ParentalControls from "../../components/ParentalControls/ParentalControls";
+import "./HomePage.scss";
+import ParentalTips from "../../components/ParentalTips/ParentalTips";
 import TrustMetrics from "../../components/TrustMetrics/TrustMetrics";
 import InteractionLogs from "../../components/InteractionLogs/InteractionLogs";
+import ParentalControls from "../../components/ParentalControls/ParentalControls";
 
 import "./HomePage.scss";
 function HomePage() {
   return (
-    <div>
-      <div className="container-one">
-        <InteractionLogs />
-        <TrustMetrics />
+    <main className="home-page">
+      <div className="home-page__container">
+        <div className="home-page__left-container">
+          <InteractionLogs />
+          <TrustMetrics />
+        </div>
+        <div className="home-page__right-container">
+          <ParentalTips />
+          <ParentalControls />
+        </div>
       </div>
-      <div className="container-two">
-        {/* <ParentTips />
-        <FilterWords /> */}
-        <ParentalControls />
-      </div>
-    </div>
+    </main>
   );
 }
 

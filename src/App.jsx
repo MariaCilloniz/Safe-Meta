@@ -5,15 +5,15 @@ import Resources from "./pages/Resources/Resources";
 import Header from "./components/Header/Header";
 
 function App() {
-	return (
-		<BrowserRouter>
-			<Header />
-			<Routes>
-				<Route path="/" element={<HomePage />} />
-				<Route path="home" element={<Navigate to="/" />} />
-				<Route path="resources" element={<Resources />} />
-			</Routes>
-		</BrowserRouter>
-	);
+  return (
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="home" element={<Navigate to="/" />} />
+        <Route path="resources" element={<Resources />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 export default App;

@@ -1,14 +1,17 @@
-@use "../../styles/partials/variables" as *;
+.home-page {
+  padding: 30px 0 60px;
+  &__container {
+    width: 90%;
+    margin: 0 auto;
+  }
 
-.container-one {
-  display: flex;
-  align-items: center;
-}
+  &__left-container {
+    display: flex;
+    gap: 32px;
+    padding-bottom: 22px;
+  }
 
-.container-two {
-  display: flex;
-}
-
-body {
-  background-color: $main-bg-color;
+  &__right-container {
+    display: flex;
+  }
 }
