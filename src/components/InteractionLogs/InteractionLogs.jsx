@@ -6,12 +6,11 @@ import {
   faWhatsapp,
   faFacebookMessenger,
 } from "@fortawesome/free-brands-svg-icons";
+import moment from "moment"; // For formatting time
 import "./InteractionLogs.scss";
-
 const InteractionLogs = () => {
   const [logs, setLogs] = useState([]);
   const [selectedDay, setSelectedDay] = useState("2024-11-20");
-
   useEffect(() => {
     const fetchLogs = async () => {
       const mockLogs = [
@@ -40,11 +39,10 @@ const InteractionLogs = () => {
         {
           id: 4,
           platform: "WhatsApp",
-          feature: "Business AI Chatbots",
+          feature: "AI-Powered Stickers",
           count: 4,
           lastActivity: "2024-11-18 15:30:00",
         },
-
         // Logs for 2024-11-19
         {
           id: 5,
@@ -56,7 +54,7 @@ const InteractionLogs = () => {
         {
           id: 6,
           platform: "Facebook",
-          feature: "AI-Suggested Ads",
+          feature: "AI-Suggested Friends",
           count: 6,
           lastActivity: "2024-11-19 15:30:00",
         },
@@ -70,11 +68,10 @@ const InteractionLogs = () => {
         {
           id: 8,
           platform: "WhatsApp",
-          feature: "AI Automated Replies",
+          feature: "AI-Generated Stories",
           count: 3,
           lastActivity: "2024-11-19 15:30:00",
         },
-
         // Logs for 2024-11-20
         {
           id: 9,
@@ -100,23 +97,19 @@ const InteractionLogs = () => {
         {
           id: 12,
           platform: "WhatsApp",
-          feature: "Business Insights",
+          feature: "AI-Powered Emoji Suggestions",
           count: 6,
           lastActivity: "2024-11-20 15:30:00",
         },
       ];
-
       // Filter logs based on selected day
       const filteredLogs = mockLogs.filter((log) =>
         log.lastActivity.startsWith(selectedDay)
       );
-
       setLogs(filteredLogs);
     };
-
     fetchLogs();
   }, [selectedDay]);
-
   const getIcon = (platform) => {
     switch (platform) {
       case "Facebook":
@@ -144,11 +137,19 @@ const InteractionLogs = () => {
         );
     }
   };
-
+  const formatTime = (time) => {
+    return moment(time).format("YYYY-MM-DD h:mm A"); // Format date and time
+  };
+  const formatDate = (date) => {
+    return moment(date).format("MMMM Do, YYYY"); // Formats the date to "Month day, Year"
+  };
   return (
     <div className="interaction-logs">
-      <h2>AI TRACKER</h2>
-
+      <h2>AI Interaction Tracker</h2>
+      <p className="description">
+        Your child interacted with these AI-powered features on Meta platforms
+        today.
+      </p>
       {/* Date Filter at the top right */}
       <div className="date-filter">
         <label htmlFor="day">Filter by day:</label>
@@ -159,14 +160,19 @@ const InteractionLogs = () => {
           onChange={(e) => setSelectedDay(e.target.value)}
         />
       </div>
-
+      {/* Display selected date */}
+      <div className="selected-date">
+        <p>Date Selected: {formatDate(selectedDay)}</p>
+      </div>
       <div className="platforms-container">
         {logs.map((log) => (
           <div className={`platform-log ${log.platform}`} key={log.id}>
             <div className="platform-header">
               <div className="platform-icon">{getIcon(log.platform)}</div>
               <h3>{log.platform}</h3>
-              <span className="profile-views">{log.count} profile views</span>
+              <div className="meta-box">
+                <span className="count">{log.count} times</span>
+              </div>
             </div>
             <div className="progress-bar">
               <div
@@ -175,12 +181,13 @@ const InteractionLogs = () => {
               ></div>
             </div>
             <p className="feature">{log.feature}</p>
-            <p className="last-activity">{log.lastActivity}</p>
+            <p className="last-activity">
+              {formatTime(log.lastActivity)} {/* Updated to show Date & Time */}
+            </p>
           </div>
         ))}
       </div>
     </div>
   );
 };
-
 export default InteractionLogs;
